@@ -12,7 +12,11 @@ const morgan = require("morgan")
 const cors = require("cors")
 // port
 const PORT = process.env.PORT || "2021"
-
+const SECRET = process.env.SECRET || "secret"
+const userRouter = require("./routes/users")
+// Sessions Middleware
+const session = require("express-session"); 
+const connect = require("connect-mongodb-session")(session) 
 
 //////////////////////////////////
 // Create APP Object
@@ -25,7 +29,6 @@ const app = express()
 //////////////////////////////////
 app.set("view engine", "ejs")
 
-
 ///////////////////////////////////
 // Setup Middleware
 ///////////////////////////////////
@@ -35,17 +38,34 @@ app.use(express.static("public")) // serve public folder as static
 app.use(morgan("tiny")) // request logging
 app.use(express.json()) // parse json bodies
 app.use(express.urlencoded({extended: false}))
-
+// Session middleware
+app.use(
+    session({
+      secret: SECRET,
+      cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      },
+      saveUninitialized: true, 
+      resave: true, 
+      store: new connect({
+        uri: process.env.MONGODB_URL,
+        databaseName: "sessions",
+        collection: "sessions",
+      }),
+    })
+  );
 
 ////////////////////////////////
 // Routes and Routers
 ////////////////////////////////
 
-// main index 
+// Main index 
 app.get("/", (req, res) => {
-    res.send("index working")
+    res.render("index")
 })
 
+//userRouter
+app.use("/user", userRouter);
 
 ///////////////////////////////////
 // App Listener
