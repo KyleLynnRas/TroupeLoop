@@ -14,6 +14,7 @@ const cors = require("cors")
 const PORT = process.env.PORT || "2021"
 const SECRET = process.env.SECRET || "secret"
 const userRouter = require("./routes/users")
+const postsRouter = require("./routes/posts")
 // Sessions Middleware
 const session = require("express-session"); 
 const connect = require("connect-mongodb-session")(session) 
@@ -66,6 +67,9 @@ app.get("/", (req, res) => {
 
 //userRouter
 app.use("/user", userRouter);
+
+//postsRouter
+app.use("/posts", postsRouter);
 
 ///////////////////////////////////
 // App Listener
