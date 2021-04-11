@@ -20,14 +20,14 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", async (req, res) => {
     try {
-        console.log(req.body)
+        // console.log(req.body)
         // salt password
         const salt = await bcrypt.genSalt(10)
         //hash password
         req.body.password = await bcrypt.hash(req.body.password, salt)
         // new user from user model
         const newUser = await User.create(req.body)
-        console.log(newUser)
+        // console.log(newUser)
         //main index 
        res.redirect("/")
     } catch (error) {
@@ -65,6 +65,14 @@ router.post("/login", async (req, res) => {
         res.json(error)
     }
 })
+
+//Logout: 
+router.get("/logout", (req, res) => {
+    req.session.userId = null
+    console.log(req.session)
+    res.redirect("/")
+})
+
 
 ///////////////////////////////
 // Export Router
