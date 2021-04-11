@@ -35,6 +35,37 @@ router.post("/signup", async (req, res) => {
     }
 })
 
+//Login:
+router.get("/login", (req, res) => {
+    res.render("users/login")
+})
+
+router.post("/login", async (req, res) => {
+    try {
+        //check for user in db
+        const user = await User.findOne({username: req.body.username})
+        //if exist
+        if(user) {
+            //password verification
+            const result = await bcrypt.compare(req.body.password, user.password)
+            //if matches:
+            if(result) {
+                //create session
+                req.session.userId = user._id
+                res.redirect("/posts")
+            } else {
+                //error 
+                res.json({error: "Password incorrect"})
+            }
+        //user doesn't exist
+        } else {
+            res.json({error: "Unknown user"})
+        } 
+    } catch (error) {
+        res.json(error)
+    }
+})
+
 ///////////////////////////////
 // Export Router
 ////////////////////////////////
