@@ -15,6 +15,9 @@ const postsController = require("../controllers/posts")
 //Index:
 router.get("/", postsController.index)
 
+//Delete:
+router.delete("/:id", postsController.destroy)
+
 //Create:
 router.post("/", postsController.create)
 

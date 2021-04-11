@@ -13,6 +13,12 @@ const index = async (req, res) => {
     })
 }
 
+//Delete:
+const destroy = async (req, res) => {
+    await Post.findByIdAndRemove(req.params.id)
+    res.redirect("/posts")
+}
+
 //Create:
 const create = async (req, res) => {
     const newPost = await Post.create(req.body)
@@ -34,11 +40,13 @@ const show = async (req, res) => {
     })
 }
 
+
 ///////////////////////////////
 // Exports
 ////////////////////////////////
 module.exports = {
     index, 
     create, 
-    show
+    show,
+    destroy
 }
