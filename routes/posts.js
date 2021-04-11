@@ -18,6 +18,11 @@ router.get("/", postsController.index)
 //Create:
 router.post("/", postsController.create)
 
+//Show:
+router.get("/:id", postsController.show)
+
+
+
 ///////////////////////////////
 // Export Router
 ////////////////////////////////

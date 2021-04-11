@@ -23,6 +23,7 @@
             <% for (author of post.author) { %>
                 <p>Created by: <%= author.username %> at <%= post.createdAt %></p>
             <% } %>
+            <a href="/posts/<%= post.id %>">See more</a>
         <% } %>
 
         <a href="/user/logout">Log out</a>

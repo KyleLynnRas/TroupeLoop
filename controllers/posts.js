@@ -26,10 +26,19 @@ const create = async (req, res) => {
     res.redirect("/posts")
 }
 
+//Show: 
+const show = async (req, res) => {
+    const currentPost = await Post.findById(req.params.id)
+    res.render("posts/show", {
+        post: currentPost
+    })
+}
+
 ///////////////////////////////
 // Exports
 ////////////////////////////////
 module.exports = {
     index, 
-    create
+    create, 
+    show
 }
