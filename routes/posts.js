@@ -15,7 +15,8 @@ const postsController = require("../controllers/posts")
 //Index:
 router.get("/", postsController.index)
 
-
+//Create:
+router.post("/", postsController.create)
 
 ///////////////////////////////
 // Export Router

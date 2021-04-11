@@ -9,11 +9,20 @@
 <body>
     <main>
         <h1>Message Board</h1>
+        <h3>Add a post</h3>
+        <section>
+            <form action="/posts" method="post">
+                <input type="text" name="title" placeholder="Title"><br />
+                <input type="text" name="text" placeholder="What do you want to say?"><br />
+                <input type="submit" value="Submit"><br />
+            </form>
+        </section>
         <% for (post of posts) { %>
             <h3><%= post.title %></h3>
             <p><%= post.text %></p>
-            <p><%= post.createdAt %></p>
-    
+            <% for (author of post.author) { %>
+                <p>Created by: <%= author.username %> at <%= post.createdAt %></p>
+            <% } %>
         <% } %>
 
         <a href="/user/logout">Log out</a>

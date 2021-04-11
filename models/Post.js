@@ -10,7 +10,7 @@ const PostSchema = new Schema(
   {
    title: String, 
    text: String, 
-   author: {type: Schema.Types.ObjectId, ref: "User"}
+   author: [{type: Schema.Types.ObjectId, ref: "User"}]
   }, { timestamps: true }
 )
 
