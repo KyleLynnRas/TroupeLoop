@@ -2,8 +2,7 @@
 // Imports
 ////////////////////////////////
 const router = require("express").Router()
-const bcrypt = require("bcryptjs")
-const User = require("../models/User")
+const userController = require("../controllers/users")
 
 ///////////////////////////////
 // Router Specific Middleware
@@ -14,65 +13,17 @@ const User = require("../models/User")
 ////////////////////////////////
 
 //Signup: 
-router.get("/signup", (req, res) => {
-    res.render("users/signup")
-})
+router.get("/signup", userController.new)
 
-router.post("/signup", async (req, res) => {
-    try {
-        // console.log(req.body)
-        // salt password
-        const salt = await bcrypt.genSalt(10)
-        //hash password
-        req.body.password = await bcrypt.hash(req.body.password, salt)
-        // new user from user model
-        const newUser = await User.create(req.body)
-        // console.log(newUser)
-        //main index 
-       res.redirect("/")
-    } catch (error) {
-        res.json(error)
-    }
-})
+router.post("/signup", userController.signUp)
 
 //Login:
-router.get("/login", (req, res) => {
-    res.render("users/login")
-})
+router.get("/login", userController.logInForm)
 
-router.post("/login", async (req, res) => {
-    try {
-        //check for user in db
-        const user = await User.findOne({username: req.body.username})
-        //if exist
-        if(user) {
-            //password verification
-            const result = await bcrypt.compare(req.body.password, user.password)
-            //if matches:
-            if(result) {
-                //create session
-                req.session.userId = user._id
-                res.redirect("/posts")
-            } else {
-                //error 
-                res.json({error: "Password incorrect"})
-            }
-        //user doesn't exist
-        } else {
-            res.json({error: "Unknown user"})
-        } 
-    } catch (error) {
-        res.json(error)
-    }
-})
+router.post("/login", userController.logIn)
 
 //Logout: 
-router.get("/logout", (req, res) => {
-    req.session.userId = null
-    console.log(req.session)
-    res.redirect("/")
-})
-
+router.get("/logout", userController.logOut)
 
 ///////////////////////////////
 // Export Router

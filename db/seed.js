@@ -11,9 +11,9 @@ const mongoose = require("./connection")
 // Seed
 /////////////////////////////////
 const seed = async () => {
-    //--- CODE GOES HERE
+    
     console.log("seed file")
-    //--------------------
+   
 }
 
 
