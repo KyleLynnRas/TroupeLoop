@@ -19,6 +19,14 @@ const destroy = async (req, res) => {
     res.redirect("/posts")
 }
 
+//Update: 
+const update = async (req, res) => {
+    const postId = req.params.id
+    //get current post
+    await Post.findByIdAndUpdate(postId, req.body, {new: true})
+    res.redirect("/posts")
+}
+
 //Create:
 const create = async (req, res) => {
     const newPost = await Post.create(req.body)
@@ -30,6 +38,15 @@ const create = async (req, res) => {
     newPost.save()
     // console.log(newPost)
     res.redirect("/posts")
+}
+
+//Edit:
+const edit = async (req, res) => {
+    //get current post
+    const currentPost = await Post.findById(req.params.id)
+    res.render("posts/edit", {
+        post: currentPost
+    })
 }
 
 //Show: 
@@ -48,5 +65,7 @@ module.exports = {
     index, 
     create, 
     show,
-    destroy
+    destroy, 
+    edit,
+    update
 }

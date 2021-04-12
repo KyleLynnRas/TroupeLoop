@@ -9,16 +9,12 @@
 <body>
     <main>
         <h1><%= post.title %></h1>
-        <p><%= post.text %></p>
-        <% for (author of post.author) { %>
-            <p>Created by: <%= author.username %> at <%= post.createdAt %></p>
-        <% } %>
-
-        <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
-            <input type="submit" value="Delete">
+        <form action="/posts/<%= post.id %>?_method=PUT" method="post">
+            Title: <input type="text" name="title" value="<%= post.title %>"><br />
+            Text: <input type="text" name="text" value="<%= post.text %>"><br />
+            <input type="submit" value="Submit"><br />
         </form>
         <a href="/posts">Back</a>
-        <a href="/posts/<%= post.id %>/edit">Edit</a>
     </main>
 </body>
 </html>
