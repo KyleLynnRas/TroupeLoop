@@ -10,6 +10,7 @@ const UserSchema = new Schema(
   {
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true },
+    comments: [{type: Schema.Types.ObjectId, ref: "Comment"}]
   }, { timestamps: true }
 )
 

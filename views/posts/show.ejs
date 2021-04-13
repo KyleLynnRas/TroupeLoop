@@ -20,5 +20,16 @@
         <a href="/posts">Back</a>
         <a href="/posts/<%= post.id %>/edit">Edit</a>
     </main>
+    <section>
+        <h2>Comments:</h2>
+        <% for (comment of post.comments) { %>
+            <p><%= comment.text %></p>
+        <% } %>
+        <h3>Add comment:</h3>
+        <form action="/comments/<%= post.id%>" method="post">
+            <input type="textarea" name="text" placeholder="What do you want to say?"><br />
+            <input type="submit" value="Submit"><br />
+        </form>
+    </section>
 </body>
 </html>

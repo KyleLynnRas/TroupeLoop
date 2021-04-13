@@ -51,7 +51,7 @@ const edit = async (req, res) => {
 
 //Show: 
 const show = async (req, res) => {
-    const currentPost = await Post.findById(req.params.id)
+    const currentPost = await Post.findById(req.params.id).populate("comments")
     res.render("posts/show", {
         post: currentPost
     })

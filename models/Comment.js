@@ -6,21 +6,20 @@ const { Schema, model } = require("../db/connection.js")
 ////////////////////////////////
 // Schema
 ////////////////////////////////
-const PostSchema = new Schema(
+const CommentSchema = new Schema(
   {
-   title: String, 
    text: String, 
    author: [{type: Schema.Types.ObjectId, ref: "User"}],
-   comments: [{type: Schema.Types.ObjectId, ref: "Comment"}]
+   post: [{type: Schema.Types.ObjectId, ref: "Post"}]
   }, { timestamps: true }
 )
 
 ////////////////////////////////
 // Model
 ////////////////////////////////
-const Post = model("Post", PostSchema)
+const Comment = model("Comment", CommentSchema)
 
 ////////////////////////////////
 //  Exports
 ////////////////////////////////
-module.exports = Post
+module.exports = Comment
