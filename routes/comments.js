@@ -12,9 +12,11 @@ const commentsController = require("../controllers/comments")
 // Router Routes
 ////////////////////////////////
 
-//Create: /comments/postid
+//Create: /comments/postId
 router.post("/:id", commentsController.create)
 
+//Show: /comments/commentId
+router.get("/:id", commentsController.show)
 
 ///////////////////////////////
 // Export Router

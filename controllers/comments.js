@@ -33,6 +33,22 @@ const create = async (req, res) => {
     res.redirect(`/posts/${postId}`)
 }
 
+//Show: 
+const show = async (req, res) => { 
+    // console.log(req.params)
+    commentId = req.params.id
+    const currentComment = await Comment.findById(commentId).populate("post").populate("author")
+    //get currentPost id for url
+    let postId 
+    for (post of currentComment.post) {
+        postId = post.id
+        // console.log(postId)
+    }
+    res.render("comments/show", {
+        comment: currentComment, 
+        postId
+    })
+}
 
 
 
@@ -40,5 +56,6 @@ const create = async (req, res) => {
 // Exports
 ////////////////////////////////
 module.exports = {
-    create
+    create, 
+    show
 }
