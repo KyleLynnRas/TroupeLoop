@@ -4,6 +4,7 @@
 const router = require("express").Router()
 const Post = require("../models/Post")
 const User = require("../models/User")
+const Comment = require("../models/Comment")
 
 //Index:
 const index = async (req, res) => {
@@ -15,8 +16,31 @@ const index = async (req, res) => {
 
 //Delete:
 const destroy = async (req, res) => {
-    await Post.findByIdAndRemove(req.params.id)
-    res.redirect("/posts")
+    try {
+        const currentPost = await Post.findById(req.params.id).populate("comments")
+        //delete all realted comments from db 
+        const relComments = currentPost.comments
+        // console.log(relComments)
+        for (comment of relComments) {
+            //id of comment
+            const commentId = comment.id
+            //find currentcomment 
+            const currentComment = await Comment.findById(commentId).populate("author")
+            //find user in currentComment
+            const commentUserId = currentComment.author.id
+            const commentUser = await User.findById(commentUserId)
+            //remove currentcomment from user
+            commentUser.comments.pull(currentComment.id)
+            commentUser.save()
+            //delete comment from db
+            await Comment.findByIdAndRemove(commentId)
+        }
+        //delet post from db
+        await Post.findByIdAndRemove(req.params.id)
+        res.redirect("/posts")
+    } catch (error) {
+        res.json(error)
+    }
 }
 
 //Update: 
