@@ -6,6 +6,31 @@ const Post = require("../models/Post")
 const User = require("../models/User")
 const Comment = require("../models/Comment")
 
+//Delete:
+const destroy = async (req, res) => {
+    try {
+        const currentComment = await Comment.findById(req.params.id).populate("post").populate("author")
+        //get objId of related user (author)
+        const userID= currentComment.author.id
+        //delete currentcomment from relUser in db
+        const relUser = await User.findById(userID)
+        // console.log(relUser)
+        relUser.comments.pull(currentComment.id)
+        relUser.save()
+        //get objId of related post
+        const postId = currentComment.post.id
+        //delete currentcomment from relPost in db
+        const relPost = await Post.findById(postId)
+        console.log(postId)
+        relPost.comments.pull(currentComment.id)
+        relPost.save()
+        //remove comment
+        await Comment.findByIdAndRemove(req.params.id)
+        res.redirect(`/posts/${postId}`)
+    } catch (error) {
+        res.json(error)
+    }
+}
 
 //Update:
 const update = async (req, res) => {
@@ -69,5 +94,6 @@ module.exports = {
     create, 
     show, 
     edit, 
-    update
+    update,
+    destroy
 }

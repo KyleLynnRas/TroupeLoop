@@ -12,6 +12,9 @@ const commentsController = require("../controllers/comments")
 // Router Routes
 ////////////////////////////////
 
+//Delete:
+router.delete("/:id", commentsController.destroy)
+
 //Update: /comments/commentId
 router.put("/:id", commentsController.update)
 

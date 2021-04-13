@@ -16,6 +16,9 @@
             <p><%= comment.text %></p>
             <p><%= comment.createdAt %> : <%= comment.author.username %></p>
         </section>
+        <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+            <input type="submit" value="Delete">
+        </form>
         <a href="/comments/<%=comment.id%>/edit">Edit</a>
         <a href="/posts/<%=postId%>">Back</a>
     </main>
