@@ -9,8 +9,8 @@ const { Schema, model } = require("../db/connection.js")
 const CommentSchema = new Schema(
   {
    text: String, 
-   author: [{type: Schema.Types.ObjectId, ref: "User"}],
-   post: [{type: Schema.Types.ObjectId, ref: "Post"}]
+   author: {type: Schema.Types.ObjectId, ref: "User"},
+   post: {type: Schema.Types.ObjectId, ref: "Post"}
   }, { timestamps: true }
 )
 

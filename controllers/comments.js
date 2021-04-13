@@ -22,15 +22,16 @@ const create = async (req, res) => {
     const currentPost = await Post.findById(req.params.id)
     //current user
     const user = await User.findById(req.session.userId)
-    //push post to new comment model 
-    newComment.post.push(currentPost)
-    //push current user to new comment model
-    newComment.author.push(user)
+    //add currentpost to newcomment 
+    newComment.post = currentPost
+    //add currentuser to newcomment 
+    newComment.author = user
     newComment.save()
-    //push newcomment to user model 
+    console.log(newComment)
+    //push newcomment to user 
     user.comments.push(newComment)
     user.save()
-    //push newcomment to post model
+    //push newcomment to post
     currentPost.comments.push(newComment)
     currentPost.save()
     //id for redirect 
@@ -53,17 +54,12 @@ const show = async (req, res) => {
     commentId = req.params.id
     const currentComment = await Comment.findById(commentId).populate("post").populate("author")
     //get currentPost id for url
-    let postId 
-    for (post of currentComment.post) {
-        postId = post.id
-        // console.log(postId)
-    }
+    const postId = currentComment.post.id
     res.render("comments/show", {
         comment: currentComment, 
         postId
     })
 }
-
 
 
 ///////////////////////////////

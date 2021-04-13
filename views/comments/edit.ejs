@@ -9,10 +9,8 @@
 <body>
     <main>
         <section>
-            <% for (post of comment.post) { %>
-                <h2><%= post.title %></h2>
-                <p><%= post.text %></p>
-            <% } %>
+            <h2><%= comment.post.title %></h2>
+            <p><%= comment.post.text %></p>
         </section>
         <section>
             <form action="/comments/<%= comment.id %>?_method=PUT" method="post">

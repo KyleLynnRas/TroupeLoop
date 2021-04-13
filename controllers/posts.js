@@ -34,7 +34,7 @@ const create = async (req, res) => {
     const currentUser = await User.findById(req.session.userId)
     // console.log(currentUser)
     //update new post with user info
-    newPost.author.push(currentUser)
+    newPost.author = currentUser
     newPost.save()
     // console.log(newPost)
     res.redirect("/posts")
@@ -51,7 +51,7 @@ const edit = async (req, res) => {
 
 //Show: 
 const show = async (req, res) => {
-    const currentPost = await Post.findById(req.params.id).populate("comments")
+    const currentPost = await Post.findById(req.params.id).populate("comments").populate("author")
     res.render("posts/show", {
         post: currentPost
     })

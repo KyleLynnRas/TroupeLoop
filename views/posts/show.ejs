@@ -10,10 +10,8 @@
     <main>
         <h1><%= post.title %></h1>
         <p><%= post.text %></p>
-        <% for (author of post.author) { %>
-            <p>Created by: <%= author.username %> at <%= post.createdAt %></p>
-        <% } %>
-
+        <p>Created by: <%= post.author.username %> at <%= post.createdAt %></p>
+        
         <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
             <input type="submit" value="Delete">
         </form>
