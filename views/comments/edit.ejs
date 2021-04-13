@@ -15,13 +15,12 @@
             <% } %>
         </section>
         <section>
-            <p><%= comment.text %></p>
-            <% for (author of comment.author) { %>
-                <p><%=comment.createdAt %> : <%= author.username %></p>
-            <% } %>
+            <form action="/comments/<%= comment.id %>?_method=PUT" method="post">
+                Text: <input type="text" name="text" value="<%= comment.text %>"><br />
+                <input type="submit" value="Submit"><br />
+            </form>
         </section>
-        <a href="/comments/<%=comment.id%>/edit">Edit</a>
-        <a href="/posts/<%=postId%>">Back</a>
+        <a href="/posts">Back</a>
     </main>
 </body>
 </html>

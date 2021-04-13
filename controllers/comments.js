@@ -7,6 +7,12 @@ const User = require("../models/User")
 const Comment = require("../models/Comment")
 
 
+//Update:
+const update = async (req, res) => {
+    //update comment
+    await Comment.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    res.redirect(`/comments/${req.params.id}`)
+}
 
 //Create: 
 const create = async (req, res) => {
@@ -33,6 +39,14 @@ const create = async (req, res) => {
     res.redirect(`/posts/${postId}`)
 }
 
+//Edit: 
+const edit = async (req, res) => {
+    const currentComment = await Comment.findById(req.params.id).populate("post")
+    res.render("comments/edit", {
+        comment: currentComment
+    })
+}
+
 //Show: 
 const show = async (req, res) => { 
     // console.log(req.params)
@@ -57,5 +71,7 @@ const show = async (req, res) => {
 ////////////////////////////////
 module.exports = {
     create, 
-    show
+    show, 
+    edit, 
+    update
 }

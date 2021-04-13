@@ -12,8 +12,14 @@ const commentsController = require("../controllers/comments")
 // Router Routes
 ////////////////////////////////
 
+//Update: /comments/commentId
+router.put("/:id", commentsController.update)
+
 //Create: /comments/postId
 router.post("/:id", commentsController.create)
+
+//Edit: comments/commentId
+router.get("/:id/edit", commentsController.edit)
 
 //Show: /comments/commentId
 router.get("/:id", commentsController.show)
