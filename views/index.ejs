@@ -1,9 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("./partials/head") %>
-<body>
-    <h1>Welcome</h1>
-    <a href="/user/signup">Sign up</a>
-    <a href="/user/login">Sign in</a>
+<body class="home-body">
+    <header class="home-header">
+        <nav class="home-nav">
+            <a href="/user/signup"><i class="fas fa-fire"></i>Sign up</a>
+            <a href="/user/login"><i class="fas fa-fire"></i>Sign in</a>
+        </nav>
+        <div id="carouselHome" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100 car-img" src="https://i.imgur.com/gLseIE6.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 car-img" src="https://i.imgur.com/3m9syCH.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 car-img" src="https://i.imgur.com/xcUF80N.jpg" alt="Third slide">
+              </div>
+        </div>
+    </header>
+    <main class="main-home">
+        <h1 class="home-title">TroupeConnect</h1>
+        <section class="home-features">
+            <div class="card home-card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-comments"></i></h5>
+                  <h6 class="card-subtitle mb-2">Message Board</h6>
+                  <p class="card-text">Keep everyone updated with our message board feature</p>
+                </div>
+            </div>
+            <div class="card home-card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-video"></i></h5>
+                  <h6 class="card-subtitle mb-2">Media Share</h6>
+                  <p class="card-text">Make troupe photos and videos easily accessible in one spot!</p>
+                </div>
+            </div>
+            <div class="card home-card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-lightbulb"></i>
+                  <h6 class="card-subtitle mb-2">Inpiration Board</h6>
+                  <p class="card-text">A costume inspiration board to keep track of looks and plan new ones</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include("./partials/bootstrap") %>
+    <footer></footer>
 </body>
 </html>
