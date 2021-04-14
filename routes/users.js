@@ -12,18 +12,21 @@ const userController = require("../controllers/users")
 // Router Routes
 ////////////////////////////////
 
-//Signup: 
-router.get("/signup", userController.new)
+// Main index 
+router.get("/", (req, res) => {
+    res.render("index")
+})
 
-router.post("/signup", userController.signUp)
+//Signup: 
+router.get("/user/signup", userController.new)
+
+router.post("/user/signup", userController.signUp)
 
 //Login:
-router.get("/login", userController.logInForm)
-
-router.post("/login", userController.logIn)
+router.post("/", userController.logIn)
 
 //Logout: 
-router.get("/logout", userController.logOut)
+router.get("/user/logout", userController.logOut)
 
 ///////////////////////////////
 // Export Router

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../partials/head") %>
-<body>
-    <h1>Sign up</h1>
-    <form action="/user/signup" method="post">
-        <input type="text" placeholder="username" name="username" >
-        <input type="password" placeholder="password" name="password"/>
-        <input type="submit" value="Sign up"/>
-    </form>
+<body class="signup-body">
+    <main class="signup-main">
+        <form class="signup-form" action="/user/signup" method="post">
+            <h1 class="h1-signup">Sign up</h1>
+            <input class="signup-input" type="text" placeholder="username" name="username" >
+            <input class="signup-input" type="password" placeholder="password" name="password"/>
+            <input class="signup-input submit" type="submit" value="Sign up"/>
+        </form>
+    </main>
+    <%- include("../partials/bootstrap") %>
+    <footer></footer>
 </body>
 </html>

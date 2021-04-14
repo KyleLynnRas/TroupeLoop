@@ -28,11 +28,6 @@ const signUp = async (req, res) => {
     }
 }
 
-//Login form:
-const logInForm = (req, res) => {
-    res.render("users/login")
-}
-
 //Login:
 const logIn = async (req, res) => {
     try {
@@ -75,7 +70,6 @@ const logOut = (req, res) => {
 module.exports = {
     new: newUser, 
     signUp,
-    logInForm,
     logIn,
     logOut
 }

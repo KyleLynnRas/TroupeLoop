@@ -61,13 +61,8 @@ app.use(
 // Routes and Routers
 ////////////////////////////////
 
-// Main index 
-app.get("/", (req, res) => {
-    res.render("index")
-})
-
 //userRouter
-app.use("/user", userRouter);
+app.use("/", userRouter)
 
 //postsRouter
 app.use("/posts", postsRouter);
