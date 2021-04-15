@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text"><%= post.text %></p>
-                    <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> on <%= post.createdAt %></p>
+                    <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> on <%= postDate %></p>
                     <div class="post-icon-box">
                         <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
                             <button class="delete-btn" type="submit" value=""><i class="fas fa-trash post-del"></i></button>
@@ -27,11 +27,11 @@
             </div>
         </section>
         <section class="post-container comment-show-container">
-        <% for (comment of post.comments) { %>   
+        <% for (comment of comments) { %>   
             <div class="card comment-card">
                 <div class="card-body">
                     <p class="card-text"><%= comment.text %></p>
-                    <p class="card-text comment-time"><%= comment.createdAt %></p>
+                    <p class="card-text comment-time"><i class="fas fa-user-circle"></i><%= comment.author %> at <%= comment.date %></p>
                     <div class="post-icon-box">
                         <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
                             <button class="delete-btn" type="submit" value=""><i class="fas fa-trash post-del"></i></button>

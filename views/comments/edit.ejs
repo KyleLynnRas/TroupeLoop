@@ -15,6 +15,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text"><%= comment.post.text %></p>
+                <p class="post-author"><i class="fas fa-user-circle"></i><%= comment.author.username %> at <%= postDate %></p>
             </div>
         </div> 
         <form class="comment-edit-form" action="/comments/<%= comment.id %>?_method=PUT" method="post">

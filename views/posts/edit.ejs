@@ -15,6 +15,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text"><%= post.text %></p>
+                <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> at <%= postDate %></p>
             </div>
         </div> 
         <form class="post-edit-form" action="/posts/<%= post.id %>?_method=PUT" method="post">

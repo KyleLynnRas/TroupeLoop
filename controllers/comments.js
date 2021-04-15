@@ -5,6 +5,8 @@ const router = require("express").Router()
 const Post = require("../models/Post")
 const User = require("../models/User")
 const Comment = require("../models/Comment")
+//dayjs
+var dayjs = require("dayjs")
 
 //Delete:
 const destroy = async (req, res) => {
@@ -70,9 +72,13 @@ const create = async (req, res) => {
 
 //Edit: 
 const edit = async (req, res) => {
-    const currentComment = await Comment.findById(req.params.id).populate("post")
+    const currentComment = await Comment.findById(req.params.id).populate("post").populate("author")
+    //format date
+    let postedAt = currentComment.createdAt
+    postedAt = dayjs(postedAt).format("MM-DD-YY")
     res.render("comments/edit", {
-        comment: currentComment
+        comment: currentComment, 
+        postDate: postedAt
     })
 }
 

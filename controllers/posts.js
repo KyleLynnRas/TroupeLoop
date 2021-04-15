@@ -5,12 +5,23 @@ const router = require("express").Router()
 const Post = require("../models/Post")
 const User = require("../models/User")
 const Comment = require("../models/Comment")
+//dayjs
+var dayjs = require("dayjs")
 
 //Index:
 const index = async (req, res) => {
     const posts = await Post.find({}).populate("author")
+    //new array with post info for index view 
+    let postArr = []
+    for (post of posts) {
+        //set date format and add to array
+        let postDate = dayjs(post.createdAt).format("MM-DD-YY")
+        let postObj = { title: post.title, text: post.text, author: post.author.username, date: postDate, id: post.id}
+        postArr.push(postObj)
+    }
+    // console.log(postArr)
     res.render("posts/index", {
-        posts
+        posts: postArr
     })
 }
 
@@ -67,20 +78,40 @@ const create = async (req, res) => {
 //Edit:
 const edit = async (req, res) => {
     //get current post
-    const currentPost = await Post.findById(req.params.id)
+    const currentPost = await Post.findById(req.params.id).populate("author")
+    //format date
+    let postedAt = currentPost.createdAt
+    postedAt = dayjs(postedAt).format("MM-DD-YY")
     res.render("posts/edit", {
-        post: currentPost
+        post: currentPost, 
+        postDate: postedAt
     })
 }
 
 //Show: 
 const show = async (req, res) => {
     const currentPost = await Post.findById(req.params.id).populate("comments").populate("author")
+    //array of comments for post 
+    const currentComments = currentPost.comments
+    //get all comments from db, new array with updated info
+    let commentsArr = []
+    for (comment of currentComments) {
+        let dbComm = await Comment.findById(comment.id).populate("author")
+        //set date format and add to array
+        let dbCommDate = dayjs(comment.createdAt).format("MM-DD-YY")
+        let dbCommObj = {text: dbComm.text, author: dbComm.author.username, date: dbCommDate, id: comment.id}
+        commentsArr.push(dbCommObj)
+    }
+    // console.log(commentsArr)
+    //format post date 
+    let postedAt = currentPost.createdAt
+    postedAt = dayjs(postedAt).format("MM-DD-YY")
     res.render("posts/show", {
-        post: currentPost
+        post: currentPost,
+        postDate: postedAt,
+        comments: commentsArr
     })
 }
-
 
 ///////////////////////////////
 // Exports
