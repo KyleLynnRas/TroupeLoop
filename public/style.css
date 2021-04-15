@@ -159,7 +159,7 @@ footer {
 }
 
 /*-------POST INDEX---------*/
-.post-idx-header{
+.post-idx-header, .comment-idx.header {
     background: url("https://i.imgur.com/3m9syCH.jpg");
     /* safari, chrome, opera */
     background-image: -webkit-linear-gradient(top, rgba(255, 77, 246, 0.39), #00000062), url("https://i.imgur.com/3m9syCH.jpg");
@@ -174,7 +174,7 @@ footer {
     align-items: center;
 }
 
-.index-header-txt {
+.header-txt {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -260,7 +260,7 @@ footer {
     font-size: 10px;
 }
 
-.add, .delete-btn {
+.add, .delete-btn, .edit-btn {
     border: none;
     background-color: #fff;
     padding: 0;
@@ -285,39 +285,52 @@ footer {
     width: 85%;
 }
 
-/*-------POST EDIT---------*/
-.post-edit-main {
+/*-------COMMENT, POST EDIT---------*/
+.comment-idx-header{
+    background: url("https://i.imgur.com/3m9syCH.jpg");
+    /* safari, chrome, opera */
+    background-image: -webkit-linear-gradient(top, rgba(255, 77, 246, 0.39), #00000062), url("https://i.imgur.com/3m9syCH.jpg");
+    /* Ffx */
+    background-image: -moz-linear-gradient(top, rgba(255, 77, 246, 0.39), #00000062), url("https://i.imgur.com/3m9syCH.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 300px;
+    color: #fff;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.post-edit-form {
-    margin-top: 50px;
+.comment-edit-main, .post-edit-main {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-width: 95%;
-    padding: 10px;
-    text-align: center;
 }
 
-.post-edit-input {
-    border-radius: 20px;
-    min-width: 50%;
+.comment-edit-input, .post-edit-input {
+    border-radius: 8px;
     padding: 5px;
-    margin: 10px;
+    margin: 5px;
+    border: 1px solid #000;
 }
 
-.post-submit {
+.comment-submit, .post-submit {
+    border-radius: 8px;
+    padding: 3px;
+    margin: 3px;
     background-color: rgba(224, 26, 125, 0.781);
     color: #fff;
-    width: 30%;
-    border-radius: 20px;
-    padding: 5px;
-    margin: 10px;
+}
+
+.comment-submit-container, .post-submit-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.comm-card {
+    margin-top: 50px;
 }
 
 /*-------MEDIA QUERY---------*/
@@ -365,6 +378,10 @@ footer {
         width: 85%;
     }
 
+    /*--COMM EDIT--*/
+    .comm-card {
+        width: 70%;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -427,6 +444,11 @@ footer {
          width: 85%;
     }
 
+    /*--COMM EDIT--*/
+    .comm-card {
+        width: 60%;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -453,6 +475,11 @@ footer {
  
     .add-input {
         width: 450px;
+    }
+
+    /*--COMM EDIT--*/
+    .comm-card {
+        width: 60%;
     }
 
 }

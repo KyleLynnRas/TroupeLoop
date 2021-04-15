@@ -2,18 +2,29 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <main>
-        <section>
-            <h2><%= comment.post.title %></h2>
-            <p><%= comment.post.text %></p>
-        </section>
-        <section>
-            <form action="/comments/<%= comment.id %>?_method=PUT" method="post">
-                Text: <input type="text" name="text" value="<%= comment.text %>"><br />
-                <input type="submit" value="Submit"><br />
-            </form>
-        </section>
+    <header class="comment-idx-header">
+        <div class="header-txt">
+            <h1 class="title">Peculiarity Productions</h1>
+            <p>Edit Comment</p>
+        </div>
+    </header>
+    <main class="comment-edit-main">
+        <div class="card post-card comm-card">
+            <div class="card-header">
+                <h5 class="card-title"><%= comment.post.title %></h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><%= comment.post.text %></p>
+            </div>
+        </div> 
+        <form class="comment-edit-form" action="/comments/<%= comment.id %>?_method=PUT" method="post">
+            <input class="comment-edit-input" type="text" name="text" value="<%= comment.text %>"><br />
+            <div class="comment-submit-container">
+                <input class="comment-submit" type="submit" value="Submit"><br />
+            </div>
+        </form>
         <a href="/posts">Back</a>
     </main>
+    <footer></footer>
 </body>
 </html>

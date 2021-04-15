@@ -3,17 +3,26 @@
     <%- include("../partials/head") %>
 <body>
     <header class="post-idx-header">
-        <div class="index-header-txt">
-            <h1 class="post-index-title">Peculiarity Productions</h1>
+        <div class="header-txt">
+            <h1 class="title">Peculiarity Productions</h1>
             <p>Edit post</p>
         </div>
     </header>
     <main class="post-edit-main">
-        <form class="post-edit-form"action="/posts/<%= post.id %>?_method=PUT" method="post">
-            <h1><%= post.title %></h1>
+        <div class="card post-card comm-card">
+            <div class="card-header">
+                <h5 class="card-title"><%= post.title %></h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><%= post.text %></p>
+            </div>
+        </div> 
+        <form class="post-edit-form" action="/posts/<%= post.id %>?_method=PUT" method="post">
             <input class="post-edit-input" type="text" name="title" value="<%= post.title %>"><br />
             <input class="post-edit-input" type="text-area" name="text" value="<%= post.text %>"><br />
-            <input class="post-submit" type="submit" value="Submit"><br />
+            <div class="post-submit-container">
+                <input class="post-submit" type="submit" value="Submit"><br />
+            </div>
         </form>
         <a href="/posts">Back</a>
     </main>
