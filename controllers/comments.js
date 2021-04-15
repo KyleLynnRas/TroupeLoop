@@ -36,7 +36,10 @@ const destroy = async (req, res) => {
 const update = async (req, res) => {
     //update comment
     await Comment.findByIdAndUpdate(req.params.id, req.body, {new:true})
-    res.redirect(`/comments/${req.params.id}`)
+    const currComm = await Comment.findById(req.params.id)
+    // console.log(currComm.post)
+    const postId = currComm.post
+    res.redirect(`/posts/${postId}`)
 }
 
 //Create: 

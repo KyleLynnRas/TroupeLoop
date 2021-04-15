@@ -2,27 +2,51 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <main>
-        <h1><%= post.title %></h1>
-        <p><%= post.text %></p>
-        <p>Created by: <%= post.author.username %> at <%= post.createdAt %></p>
-        
-        <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
-            <input type="submit" value="Delete">
-        </form>
+    <header class="post-idx-header">
+        <div class="index-header-txt">
+            <h1 class="post-index-title">Peculiarity Productions</h1>
+        </div>
+    </header>
+    <main class="post-show-main">
         <a href="/posts">Back</a>
-        <a href="/posts/<%= post.id %>/edit">Edit</a>
-    </main>
-    <section>
-        <h2>Comments:</h2>
-        <% for (comment of post.comments) { %>
-            <a href="/comments/<%=comment.id%>"><p><%= comment.text %></p></a>
+        <section class="post-container post-show-container">
+            <div class="card post-card-show">
+                <div class="card-header">
+                    <h5 class="card-title"><%= post.title %></h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><%= post.text %></p>
+                    <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> on <%= post.createdAt %></p>
+                    <div class="post-icon-box">
+                        <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
+                            <button class="delete-btn" type="submit" value=""><i class="fas fa-trash post-del"></i></button>
+                        </form>
+                        <a href="/posts/<%= post.id %>/edit"><i class="fas fa-edit post-edit"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="post-container comment-show-container">
+        <% for (comment of post.comments) { %>   
+            <div class="card comment-card">
+                <div class="card-body">
+                    <p class="card-text"><%= comment.text %></p>
+                    <p class="card-text comment-time"><%= comment.createdAt %></p>
+                    <div class="post-icon-box">
+                        <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+                            <button class="delete-btn" type="submit" value=""><i class="fas fa-trash post-del"></i></button>
+                        </form>
+                        <a href="/comments/<%= comment.id %>/edit"><i class="fas fa-edit post-edit"></i></a>
+                    </div>
+                </div>
+            </div> 
         <% } %>
-        <h3>Add comment:</h3>
-        <form action="/comments/<%= post.id%>" method="post">
-            <input type="textarea" name="text" placeholder="What do you want to say?"><br />
-            <input type="submit" value="Submit"><br />
+        </section>
+        <form class="add-comment-form" action="/comments/<%= post.id%>" method="post">
+            <button class="add" type="submit"><i class="fas fa-plus-circle"></i></button><br />
+            <input class="add-input" type="textarea" name="text" placeholder="Add comment"><br />
         </form>
-    </section>
+    </main>
+    <footer></footer>
 </body>
 </html>

@@ -2,14 +2,21 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <main>
-        <h1><%= post.title %></h1>
-        <form action="/posts/<%= post.id %>?_method=PUT" method="post">
-            Title: <input type="text" name="title" value="<%= post.title %>"><br />
-            Text: <input type="text" name="text" value="<%= post.text %>"><br />
-            <input type="submit" value="Submit"><br />
+    <header class="post-idx-header">
+        <div class="index-header-txt">
+            <h1 class="post-index-title">Peculiarity Productions</h1>
+            <p>Edit post</p>
+        </div>
+    </header>
+    <main class="post-edit-main">
+        <form class="post-edit-form"action="/posts/<%= post.id %>?_method=PUT" method="post">
+            <h1><%= post.title %></h1>
+            <input class="post-edit-input" type="text" name="title" value="<%= post.title %>"><br />
+            <input class="post-edit-input" type="text-area" name="text" value="<%= post.text %>"><br />
+            <input class="post-submit" type="submit" value="Submit"><br />
         </form>
         <a href="/posts">Back</a>
     </main>
+    <footer></footer>
 </body>
 </html>

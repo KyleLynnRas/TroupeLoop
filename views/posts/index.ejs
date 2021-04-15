@@ -2,24 +2,39 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <main>
-        <h1>Message Board</h1>
-        <h3>Add a post</h3>
-        <section>
-            <form action="/posts" method="post">
-                <input type="text" name="title" placeholder="Title"><br />
-                <input type="text" name="text" placeholder="What do you want to say?"><br />
-                <input type="submit" value="Submit"><br />
+    <header class="post-idx-header">
+        <div class="index-header-txt">
+            <h1 class="post-index-title">Peculiarity Productions</h1>
+            <p>Message board</p>
+        </div>
+    </header>
+    <main class="post-index-main">
+        <section class="add-post-section">
+            <h3 class="add-header">Add a post</h3>
+            <form class="add-form" action="/posts" method="post">
+                <input class="add-input" type="text" name="title" placeholder="Title">
+                <input class="add-input post-text" type="text-area" name="text" placeholder="Post away!">
+                <div class="add-submit-flex">
+                    <input class="add-submit add-input" type="submit" value="Submit">
+                </div>
             </form>
         </section>
+        <section class="post-container">
         <% for (post of posts) { %>
-            <h3><%= post.title %></h3>
-            <p><%= post.text %></p>
-            <p>Created by: <%= post.author.username %> at <%= post.createdAt %></p>
-            <a href="/posts/<%= post.id %>">See more</a>
+            <div class="card post-card">
+                <div class="card-header">
+                    <h5 class="card-title"><%= post.title %></h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><%= post.text %></p>
+                    <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> on <%= post.createdAt %></p>
+                    <a href="/posts/<%= post.id %>" class="post-comments"><i class="fas fa-comments"></i></a>
+                </div>
+            </div> 
         <% } %>
-
+        </section>
         <a href="/user/logout">Log out</a>
     </main>
+    <footer></footer>
 </body>
 </html>
