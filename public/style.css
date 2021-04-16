@@ -333,6 +333,22 @@ footer {
     margin-top: 50px;
 }
 
+/*-------USER SHOW---------*/
+.user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-show-main {
+    text-align: center;
+}
+
+.user-show-title {
+    font-size: 35px;
+}
+
 /*-------MEDIA QUERY---------*/
 
 @media screen and (min-width: 768px) { 
@@ -382,6 +398,17 @@ footer {
     .comm-card {
         width: 70%;
     }
+
+    /*--USER SHOW-- */
+    .user-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 30px 10px 30px;
+    }
+    
 }
 
 @media screen and (min-width: 992px) {

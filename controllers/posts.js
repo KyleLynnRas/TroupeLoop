@@ -19,9 +19,11 @@ const index = async (req, res) => {
         let postObj = { title: post.title, text: post.text, author: post.author.username, date: postDate, id: post.id}
         postArr.push(postObj)
     }
+    const currentUser = req.user.id
     // console.log(postArr)
     res.render("posts/index", {
-        posts: postArr
+        posts: postArr,
+        user: currentUser
     })
 }
 

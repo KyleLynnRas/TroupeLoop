@@ -28,6 +28,9 @@ router.post("/", userController.logIn)
 //Logout: 
 router.get("/user/logout", userController.logOut)
 
+//Show:
+router.get("/user/:id", userController.show)
+
 ///////////////////////////////
 // Export Router
 ////////////////////////////////
