@@ -28,7 +28,7 @@ const index = async (req, res) => {
 //Delete:
 const destroy = async (req, res) => {
     try {
-        const currentPost = await Post.findById(req.params.id).populate("comments")
+        const currentPost = await Post.findById(req.params.id).populate("comments").populate("author")
         //delete all realted comments from db 
         const relComments = currentPost.comments
         // console.log(relComments)
@@ -46,6 +46,11 @@ const destroy = async (req, res) => {
             //delete comment from db
             await Comment.findByIdAndRemove(commentId)
         }
+        //remove currentpost from user
+        const userID = currentPost.author.id
+        const currentUser = await User.findById(userID)
+        currentUser.posts.pull(currentPost.id)
+        currentUser.save()
         //delet post from db
         await Post.findByIdAndRemove(req.params.id)
         res.redirect("/posts")
@@ -71,6 +76,9 @@ const create = async (req, res) => {
     //update new post with user info
     newPost.author = currentUser
     newPost.save()
+    //add post to currentUser in db
+    currentUser.posts.push(newPost)
+    currentUser.save()
     // console.log(newPost)
     res.redirect("/posts")
 }
