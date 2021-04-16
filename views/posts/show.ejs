@@ -18,10 +18,12 @@
                     <p class="card-text"><%= post.text %></p>
                     <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> on <%= postDate %></p>
                     <div class="post-icon-box">
+                        <% if (currentUser == post.author.id) { %>
                         <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
                             <button class="delete-btn" type="submit" value=""><i class="fas fa-trash post-del"></i></button>
                         </form>
                         <a href="/posts/<%= post.id %>/edit"><i class="fas fa-edit post-edit"></i></a>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -33,10 +35,13 @@
                     <p class="card-text"><%= comment.text %></p>
                     <p class="card-text comment-time"><i class="fas fa-user-circle"></i><%= comment.author %> at <%= comment.date %></p>
                     <div class="post-icon-box">
+                        <p><%=comment.authorId %></p>
+                        <% if (currentUser == comment.authID) { %>
                         <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
                             <button class="delete-btn" type="submit" value=""><i class="fas fa-trash post-del"></i></button>
                         </form>
                         <a href="/comments/<%= comment.id %>/edit"><i class="fas fa-edit post-edit"></i></a>
+                        <% } %>
                     </div> 
                 </div>
             </div>

@@ -22,16 +22,16 @@
         </section>
         <section class="post-container">
          <% for (post of posts) { %>
-            <div class="card post-card">
+            <div class="card w-75 post-card">
                 <div class="card-header">
                     <h5 class="card-title"><%= post.title %></h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body user-card-body">
                     <p class="card-text"><%= post.text %></p>
-                    <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author %> on <%= post.date %></p>
-                    <a href="/posts/<%= post.id %>" class="post-comments"><i class="fas fa-comments"></i></a>
+                    <p class="card-text"><i class="fas fa-user-circle"></i><%= post.author %> on <%= post.date %></p>
+                    <a href="/posts/<%= post.id %>" class="card-link"><i class="fas fa-comments"></i></a>
                 </div>
-            </div> 
+            </div>
         <% } %>
         </section>
         <a href="/user/logout">Log out</a>

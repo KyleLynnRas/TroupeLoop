@@ -28,7 +28,6 @@ const isAuthorized = (req, res, next) => {
     }
 }
 
-
 ///////////////////////////////
 // Router Specific Middleware
 ////////////////////////////////

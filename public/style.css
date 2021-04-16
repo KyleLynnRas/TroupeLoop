@@ -159,7 +159,7 @@ footer {
 }
 
 /*-------POST INDEX---------*/
-.post-idx-header, .comment-idx.header {
+.post-idx-header, .comment-idx-header {
     background: url("https://i.imgur.com/3m9syCH.jpg");
     /* safari, chrome, opera */
     background-image: -webkit-linear-gradient(top, rgba(255, 77, 246, 0.39), #00000062), url("https://i.imgur.com/3m9syCH.jpg");
@@ -188,34 +188,36 @@ footer {
     padding-bottom: 15px;
 }
 
-.post-index-main, .post-show-main {
+.add-post-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.post-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.post-container {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.post-index-main {
+    text-align: center;
 }
 
 .post-card {
     margin: 15px;
     border: 1px solid rgba(0, 0, 0, 0.589);
-}
+    text-align: left;
+} 
 
 .card-title {
     text-align: center;
     font-weight: bold;
 }
 
-.post-author {
-    font-size: 12px;
-} 
 .fa-user-circle {
     margin-right: 3px;
 }
@@ -232,6 +234,13 @@ footer {
 }
 
 /*-------POST SHOW---------*/
+.post-show-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .post-card-show {
     margin: 15px;
     border: 1px solid rgba(0, 0, 0, 0.589);
@@ -381,19 +390,7 @@ footer {
         min-width: 90%;
         padding: 20px;
     }
-    /*--POST INDEX--*/
-    .post-card-show {
-       width: 90%;
-    }
-
-    .add-input {
-        width: 250px;
-    }
-
-    .comment-card {
-        width: 85%;
-    }
-
+ 
     /*--COMM EDIT--*/
     .comm-card {
         width: 70%;
@@ -449,28 +446,6 @@ footer {
         padding: 20px;
     }
 
-      /*--POST INDEX--*/
-    .post-card {
-        width: 90%;
-    }
- 
-    .add-input {
-        width: 300px;
-    }
-
-    /*--POST INDEX--*/
-    .post-card-show {
-        width: 90%;
-    }
- 
-    .add-input {
-         width: 250px;
-    }
- 
-    .comment-card {
-         width: 85%;
-    }
-
     /*--COMM EDIT--*/
     .comm-card {
         width: 60%;
@@ -490,18 +465,6 @@ footer {
     .signup-form {
         min-width: 70%;
         padding: 20px;
-    }
-
-    .post-container {
-        width: 70%;
-    }
-
-    .post-card {
-        width: 95%;
-    }
- 
-    .add-input {
-        width: 450px;
     }
 
     /*--COMM EDIT--*/

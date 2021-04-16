@@ -109,17 +109,21 @@ const show = async (req, res) => {
         let dbComm = await Comment.findById(comment.id).populate("author")
         //set date format and add to array
         let dbCommDate = dayjs(comment.createdAt).format("MM-DD-YY")
-        let dbCommObj = {text: dbComm.text, author: dbComm.author.username, date: dbCommDate, id: comment.id}
+        let dbCommObj = {text: dbComm.text, author: dbComm.author.username, authID: dbComm.author.id, date: dbCommDate, id: comment.id}
+        // console.log(dbCommObj)
         commentsArr.push(dbCommObj)
     }
     // console.log(commentsArr)
     //format post date 
     let postedAt = currentPost.createdAt
     postedAt = dayjs(postedAt).format("MM-DD-YY")
+    //current user for auth
+    const currentUser = req.session.userId
     res.render("posts/show", {
         post: currentPost,
         postDate: postedAt,
-        comments: commentsArr
+        comments: commentsArr, 
+        currentUser
     })
 }
 
