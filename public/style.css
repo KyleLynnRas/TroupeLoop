@@ -253,7 +253,7 @@ footer {
 
 .card-title {
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .fa-user-circle {
@@ -315,14 +315,23 @@ footer {
 }
 
 .post-del, .post-edit {
-    font-size: 15px;
+    font-size: 20px;
     color: rgba(224, 26, 125, 0.781);
     margin: 10px;
 }
 
-.post-del:hover, .post-edit:hover {
-    background-color: rgb(130, 6, 141);
-    color: #fff;
+.fav-fire {
+    font-size: 22px;
+    color: #000;
+    margin: 10px;
+}
+
+.fav-on {
+    color: rgba(224, 26, 125, 0.781);
+}
+
+.post-del:hover, .post-edit:hover, .fav-fire:hover {
+    color: rgb(130, 6, 141);
 }
 
 .post-icon-box {
@@ -441,7 +450,11 @@ footer {
     }
 
     .card-text {
-        font-size: 18px;
+        font-size: 21px;
+    }
+
+    .card-title {
+        font-size: 25px;
     }
 
     .car-img {
@@ -613,9 +626,13 @@ footer {
     }
 
     .post-del, .post-edit {
-        font-size: 20px;
+        font-size: 22px;
         color: rgba(224, 26, 125, 0.781);
         margin: 10px;
+    }
+
+    .fav-fire {
+        font-size: 25px;
     }
     
     .comment-edit-input, .post-edit-input {
@@ -636,8 +653,15 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
+    .home-title {
+        position: absolute;
+        top: 600px;
+        font-weight: 600;
+        font-size: 50px;
+    }
+
     .car-img {
-        height: 600px;
+        height: 700px;
         border-left: 260px;
         border-right: 260px;
         border-style: solid;

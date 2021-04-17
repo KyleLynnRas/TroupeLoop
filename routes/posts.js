@@ -55,6 +55,8 @@ router.get("/:id/edit", isAuthorized, postsController.edit)
 //Show:
 router.get("/:id", isAuthorized, postsController.show)
 
+//Favorite: 
+router.get("/:id/favorite", isAuthorized, postsController.favorite)
 
 
 ///////////////////////////////

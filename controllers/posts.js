@@ -138,6 +138,20 @@ const show = async (req, res) => {
     })
 }
 
+//Favorite: 
+const favorite = async (req, res) => {
+    const postId = req.params.id
+    //find post in db
+    const favPost = await Post.findById(postId)
+    //get currentUser, push post to user db
+    const currentUser = await User.findById(req.session.userId)
+    currentUser.favPosts.push(favPost)
+    currentUser.save()
+    // console.log(currentUser)
+    res.redirect(`/posts/${postId}`)
+}
+
+
 ///////////////////////////////
 // Exports
 ////////////////////////////////
@@ -147,5 +161,6 @@ module.exports = {
     show,
     destroy, 
     edit,
-    update
+    update, 
+    favorite
 }

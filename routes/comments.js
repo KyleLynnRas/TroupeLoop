@@ -52,6 +52,9 @@ router.get("/:id/edit", isAuthorized, commentsController.edit)
 //Show: /comments/commentId
 router.get("/:id", isAuthorized, commentsController.show)
 
+//Favorite: 
+router.get("/:id/favorite", commentsController.favorite)
+
 ///////////////////////////////
 // Export Router
 ////////////////////////////////

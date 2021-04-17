@@ -12,6 +12,8 @@ const UserSchema = new Schema(
     password: { type: String, required: true },
     comments: [{type: Schema.Types.ObjectId, ref: "Comment"}], 
     posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    favPosts: [{type: Schema.Types.ObjectId, ref: "Post"}],
+    favComments: [{type: Schema.Types.ObjectId, ref: "Comment"}]
   }, { timestamps: true }
 )
 

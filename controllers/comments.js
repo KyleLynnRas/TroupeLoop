@@ -100,6 +100,21 @@ const show = async (req, res) => {
     })
 }
 
+//Favorite: 
+const favorite = async (req, res) => {
+    const commentId = req.params.id
+    //find in db
+    const favComm = await Comment.findById(commentId).populate("post")
+    // get currentUser, push post to user db
+    const currentUser = await User.findById(req.session.userId)
+    currentUser.favComments.push(favComm)
+    currentUser.save()
+    //postid for redirect 
+    const postId = favComm.post.id
+    // console.log(currentUser)
+    res.redirect(`/posts/${postId}`)
+}
+
 
 ///////////////////////////////
 // Exports
@@ -109,5 +124,6 @@ module.exports = {
     show, 
     edit, 
     update,
-    destroy
+    destroy, 
+    favorite
 }
