@@ -2,22 +2,31 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <header class="post-idx-header">
-        <div class="header-txt">
-            <h1 class="title">Peculiarity Productions</h1>
-            <p>Edit post</p>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
+              TroupeConnect
+            </a>
         </div>
+    </nav>
+    <header class="post-idx-header">
+        <div class="first-box">
+            <div class="header-txt">
+                <h1 class="title">Edit post</h1>
+            </div>
+        </div>        
     </header>
     <main class="post-edit-main">
-        <div class="card post-card comm-card">
+        <div class="card w-75 post-card">
             <div class="card-header">
                 <h5 class="card-title"><%= post.title %></h5>
             </div>
-            <div class="card-body">
+            <div class="card-body user-card-body">
                 <p class="card-text"><%= post.text %></p>
-                <p class="post-author"><i class="fas fa-user-circle"></i><%= post.author.username %> at <%= postDate %></p>
+                <p class="card-text auth-text"><i class="fas fa-user-circle"></i><%= post.author.username %> on <%= postDate %></p>
             </div>
-        </div> 
+        </div>
         <form class="post-edit-form" action="/posts/<%= post.id %>?_method=PUT" method="post">
             <input class="post-edit-input" type="text" name="title" value="<%= post.title %>"><br />
             <input class="post-edit-input" type="text-area" name="text" value="<%= post.text %>"><br />

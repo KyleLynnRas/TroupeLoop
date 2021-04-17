@@ -3,21 +3,22 @@
     <%- include("../partials/head") %>
 <body>
     <header class="comment-idx-header">
-        <div class="header-txt">
-            <h1 class="title">Peculiarity Productions</h1>
-            <p>Edit Comment</p>
-        </div>
-    </header>
+            <div class="first-box">
+                <div class="header-txt">
+                    <h1 class="title">Post show</h1>
+                </div>
+            </div>        
+        </header>
     <main class="comment-edit-main">
-        <div class="card post-card comm-card">
+        <div class="card w-75 post-card">
             <div class="card-header">
-                <h5 class="card-title"><%= comment.post.title %></h5>
+                <h5 class="card-title">Post: <%= comment.post.title %></h5>
             </div>
-            <div class="card-body">
-                <p class="card-text"><%= comment.post.text %></p>
-                <p class="post-author"><i class="fas fa-user-circle"></i><%= comment.author.username %> at <%= postDate %></p>
+            <div class="card-body user-card-body">
+                <p class="card-text"><%= comment.post.text %><</p>
+                <p class="card-text auth-text"><i class="fas fa-user-circle"></i><%= comment.author.username %> at <%= postDate %></p>
             </div>
-        </div> 
+        </div>
         <form class="comment-edit-form" action="/comments/<%= comment.id %>?_method=PUT" method="post">
             <input class="comment-edit-input" type="text" name="text" value="<%= comment.text %>"><br />
             <div class="comment-submit-container">

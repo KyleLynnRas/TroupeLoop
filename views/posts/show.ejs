@@ -2,15 +2,25 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <header class="post-idx-header">
-        <div class="header-txt">
-            <h1 class="title">Peculiarity Productions</h1>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
+              TroupeConnect
+            </a>
         </div>
+    </nav>
+    <header class="post-idx-header">
+        <div class="first-box">
+            <div class="header-txt">
+                <h1 class="title">Post show</h1>
+            </div>
+        </div>        
     </header>
     <main class="post-show-main">
         <a href="/posts">Back</a>
         <section class="post-container post-show-container">
-            <div class="card post-card-show">
+            <div class="card w-75 post-card-show">
                 <div class="card-header">
                     <h5 class="card-title"><%= post.title %></h5>
                 </div>
@@ -48,8 +58,8 @@
         <% } %>
         </section>
         <form class="add-comment-form" action="/comments/<%= post.id%>" method="post">
-            <button class="add" type="submit"><i class="fas fa-plus-circle"></i></button><br />
             <input class="add-input" type="textarea" name="text" placeholder="Add comment"><br />
+            <input class="login-input login-submit" type="submit" value="Add"/>
         </form>
     </main>
     <footer></footer>

@@ -2,21 +2,30 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <header class="post-idx-header">
-        <div class="header-txt">
-            <h1 class="title">Peculiarity Productions</h1>
-            <p>Message board</p>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
+              TroupeConnect
+            </a>
         </div>
+    </nav>
+    <header class="post-idx-header">
+        <div class="first-box">
+            <div class="header-txt">
+                <h1 class="title">Message Board</h1>
+            </div>
+        </div>        
     </header>
-    <a href="/user/<%= user %>">User show</a>
     <main class="post-index-main">
         <section class="add-post-section">
+            <a href="/user/<%= user %>">User show</a>
             <h3 class="add-header">Add a post</h3>
             <form class="add-form" action="/posts" method="post">
                 <input class="add-input" type="text" name="title" placeholder="Title">
                 <input class="add-input post-text" type="text-area" name="text" placeholder="Post away!">
                 <div class="add-submit-flex">
-                    <input class="add-submit add-input" type="submit" value="Submit">
+                    <input class="login-input login-submit" type="submit" value="Add"/>
                 </div>
             </form>
         </section>
@@ -28,8 +37,8 @@
                 </div>
                 <div class="card-body user-card-body">
                     <p class="card-text"><%= post.text %></p>
-                    <p class="card-text"><i class="fas fa-user-circle"></i><%= post.author %> on <%= post.date %></p>
-                    <a href="/posts/<%= post.id %>" class="card-link"><i class="fas fa-comments"></i></a>
+                    <p class="card-text auth-text"><i class="fas fa-user-circle"></i><%= post.author %> on <%= post.date %></p>
+                    <a href="/posts/<%= post.id %>" class="card-link"><i class="fas fa-comments comm-icon"></i></a>
                 </div>
             </div>
         <% } %>
