@@ -125,8 +125,15 @@ const show = async (req, res) => {
     //format post date 
     let postedAt = currentPost.createdAt
     postedAt = dayjs(postedAt).format("MM-DD-YY")
-    //current user for auth
+    //current user for auth to edit/delete
     const currentUser = req.session.userId
+    //for fav posts - find current user fav posts
+    const currUser = await User.findById(currentUser).populate("favPosts").populate("favComments")
+    const currFavPosts = currUser.favPosts
+    //for fav comments
+    const favComms = currUser.favComments
+    // console.log(favComms)
+    // console.log(req.session.userId)
     res.render("posts/show", {
         post: currentPost,
         postDate: postedAt,
@@ -134,7 +141,9 @@ const show = async (req, res) => {
         currentUser, 
         //nav bar 
         view: "post-other", 
-        userNav: currentUser
+        userNav: currentUser, 
+        favPosts: currFavPosts,
+        favComms
     })
 }
 
