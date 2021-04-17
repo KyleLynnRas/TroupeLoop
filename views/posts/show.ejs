@@ -2,14 +2,7 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
-              TroupeConnect
-            </a>
-        </div>
-    </nav>
+    <%- include("../partials/nav") %>
     <header class="post-idx-header">
         <div class="first-box">
             <div class="header-txt">
@@ -18,7 +11,6 @@
         </div>        
     </header>
     <main class="post-show-main">
-        <a href="/posts">Back</a>
         <section class="post-container post-show-container">
             <div class="card w-75 post-card-show">
                 <div class="card-header">
@@ -62,6 +54,7 @@
             <input class="login-input login-submit" type="submit" value="Add"/>
         </form>
     </main>
+    <%- include("./partials/bootstrap") %>
     <footer></footer>
 </body>
 </html>

@@ -19,11 +19,14 @@ const index = async (req, res) => {
         let postObj = { title: post.title, text: post.text, author: post.author.username, date: postDate, id: post.id}
         postArr.push(postObj)
     }
-    const currentUser = req.user.id
+    const currentUser = req.session.userId
     // console.log(postArr)
     res.render("posts/index", {
         posts: postArr,
-        user: currentUser
+        user: currentUser,
+        //nav bar
+        view: "post-index", 
+        userNav: currentUser
     })
 }
 
@@ -92,9 +95,14 @@ const edit = async (req, res) => {
     //format date
     let postedAt = currentPost.createdAt
     postedAt = dayjs(postedAt).format("MM-DD-YY")
+    //user for nav
+    const currentUser = req.session.userId
     res.render("posts/edit", {
         post: currentPost, 
-        postDate: postedAt
+        postDate: postedAt,
+        //nav bar
+        view: "post-other",
+        userNav: currentUser
     })
 }
 
@@ -123,7 +131,10 @@ const show = async (req, res) => {
         post: currentPost,
         postDate: postedAt,
         comments: commentsArr, 
-        currentUser
+        currentUser, 
+        //nav bar 
+        view: "post-other", 
+        userNav: currentUser
     })
 }
 

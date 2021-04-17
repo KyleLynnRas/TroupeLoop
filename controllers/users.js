@@ -11,7 +11,12 @@ var dayjs = require("dayjs")
 
 //New user:
 const newUser = (req, res) => {
-    res.render("users/signup")
+    //nav
+    const userNav = req.session.userId
+    res.render("users/signup", {
+        userNav, 
+        view: "sign-up"
+    })
 }
 
 //Signup/create new user:

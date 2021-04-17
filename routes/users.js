@@ -14,7 +14,9 @@ const userController = require("../controllers/users")
 
 // Main index 
 router.get("/", (req, res) => {
-    res.render("index")
+    //user 
+    const userNav = req.session.userId
+    res.render("index", { userNav, view: "main-idx" })
 })
 
 //Signup: 

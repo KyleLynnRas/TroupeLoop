@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
+          TroupeConnect
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <% if (view === "main-idx") { %>
+                <li class="nav-item">
+                    <a href="/user/signup" class="nav-link active">Sign up</a>
+                </li>
+            <% } else if (view === "sign-up") { %> 
+                <li class="nav-item">
+                    <a href="/" class="nav-link active">Back</a>
+                </li>
+            <% } else { %> 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/user/logout">Log out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/user/<%= userNav %>">My info</a>
+                </li>
+                <li class="nav-item">
+                    <% if (view === "post-index") { %>
+                        <a class="nav-link active" href="/">Back</a>
+                    <% } else if (view === "post-other") { %>
+                        <a class="nav-link active" href="/posts">Back</a>
+                    <% } %>
+                </li>
+            </ul>
+            <% } %>
+        </div>
+        </div>
+    </nav>
+
+
+
+

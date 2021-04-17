@@ -76,9 +76,14 @@ const edit = async (req, res) => {
     //format date
     let postedAt = currentComment.createdAt
     postedAt = dayjs(postedAt).format("MM-DD-YY")
+    //nav
+    const userNav = req.session.userId
     res.render("comments/edit", {
         comment: currentComment, 
-        postDate: postedAt
+        postDate: postedAt, 
+        //nav
+        userNav,
+        view: "post-other"
     })
 }
 

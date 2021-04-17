@@ -2,14 +2,7 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
-              TroupeConnect
-            </a>
-        </div>
-    </nav>
+    <%- include("../partials/nav") %>
     <header class="post-idx-header">
         <div class="first-box">
             <div class="header-txt">
@@ -34,8 +27,8 @@
                 <input class="post-submit" type="submit" value="Submit"><br />
             </div>
         </form>
-        <a href="/posts">Back</a>
     </main>
+    <%- include("./partials/bootstrap") %>
     <footer></footer>
 </body>
 </html>

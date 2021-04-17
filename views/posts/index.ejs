@@ -2,14 +2,7 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <i class="d-inline-block align-text-top fas fa-fire" width="30" height="24" class="d-inline-block align-text-top"></i>
-              TroupeConnect
-            </a>
-        </div>
-    </nav>
+    <%- include("../partials/nav") %>
     <header class="post-idx-header">
         <div class="first-box">
             <div class="header-txt">
@@ -19,7 +12,6 @@
     </header>
     <main class="post-index-main">
         <section class="add-post-section">
-            <a href="/user/<%= user %>">User show</a>
             <h3 class="add-header">Add a post</h3>
             <form class="add-form" action="/posts" method="post">
                 <input class="add-input" type="text" name="title" placeholder="Title">
@@ -43,8 +35,8 @@
             </div>
         <% } %>
         </section>
-        <a href="/user/logout">Log out</a>
     </main>
+    <%- include("../partials/bootstrap") %>
     <footer></footer>
 </body>
 </html>

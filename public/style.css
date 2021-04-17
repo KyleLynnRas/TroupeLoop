@@ -10,6 +10,10 @@
     background-color: rgb(248, 248, 248);
 }
 
+.home-header {
+    background-color: #000;
+}
+
 .main-home {
     display: flex;
     flex-direction: column;
@@ -61,11 +65,6 @@
     font-size: 18px;
 }
 
-.home-link {
-    color:rgb(242, 242, 242);
-    font-weight: bold;
-}
-
 .home-link:hover {
     color: rgba(224, 26, 125, 0.836);
     text-decoration: none;
@@ -97,6 +96,7 @@ footer {
 }
 
 .login-header, .add-header {
+    margin-top: 20px;
     margin-bottom: 25px;
     text-align: center;
 }
@@ -127,7 +127,7 @@ footer {
 }
 
 .signup-main{
-    margin-top: 50px;
+    margin-top: 0px;
     background-image: url("https://i.imgur.com/Wf517Jm.jpg");
     /*safari, chrome, opera */
     background-image: -webkit-linear-gradient(top, rgba(255, 77, 246, 0.39), #00000062), url("https://i.imgur.com/Wf517Jm.jpg");
@@ -204,10 +204,6 @@ footer {
     justify-content: center;
     align-content: center;
     text-align: center;
-}
-
-.index-sub-title{
-    font-size: 20px;
 }
 
 .post-index-main {
@@ -404,10 +400,6 @@ footer {
     margin-bottom: 40px;
 }
 
-/* .comm-card {
-    margin-top: 50px;
-} */
-
 /*-------USER SHOW---------*/
 .user-container {
     display: flex;
@@ -424,9 +416,9 @@ footer {
     font-size: 35px;
 }
 
-/*-------NAV BAR---------*/
-.navbar {
-    background-color: rgba(239, 239, 239);
+/*-------NAV---------*/
+.nav-link:hover {
+    font-weight: bold;
 }
 
 /*-------MEDIA QUERY---------*/
@@ -472,7 +464,6 @@ footer {
 
     /*--SIGNUP--*/
     .signup-main{
-        margin-top: 50px;
         height: 90vh;
     }
 
@@ -484,6 +475,11 @@ footer {
     /*--POST INDEX--*/
     .post-idx-header, .comment-idx-header {
         min-height: 400px;
+    }
+
+    .first-box {
+        padding: 30px;
+        border: 2px solid #fff;
     }
 
     .add-form {
@@ -526,11 +522,6 @@ footer {
     .comment-time, .post-author {
         font-size: 15px;
     }
-
-    /* --COMM EDIT-- */
-    /* .comm-card {
-        width: 70%;
-    } */
 
     .post-edit-form, .comment-edit-form {
         margin-top: 20px;
@@ -584,7 +575,6 @@ footer {
 
     /*--SIGNUP--*/
     .signup-main{
-        margin-top: 50px;
         height: 100vh;
     }
 
@@ -621,10 +611,6 @@ footer {
     .post-edit-main, .comment-edit-main {
         padding-bottom: 600px;
     }
-
-    /* .comm-card {
-        width: 60%;
-    } */
 
     .post-del, .post-edit {
         font-size: 20px;
@@ -673,10 +659,4 @@ footer {
     .comment-time, .post-author {
         font-size: 20px;
     }
-    
-    /* --COMM EDIT-- */
-    /* .comm-card {
-        width: 60%;
-    } */
-
 }
