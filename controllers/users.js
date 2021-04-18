@@ -86,7 +86,7 @@ const show = async (req, res) => {
         let dbCommObj = {text: dbComm.text, author: dbComm.author.username, date: dbCommDate, id: dbComm.id, postId: dbComm.post.id, postTitle: dbComm.post.title}
         // console.log(dbCommObj.author, dbCommObj.postId)
         favComms.push(dbCommObj)
-        console.log(favComms)
+        // console.log(favComms)
     }
     //User favposts into array to reformat date 
     const favPostsArr = currentUser.favPosts
@@ -103,7 +103,9 @@ const show = async (req, res) => {
     res.render("users/show", {
         comments: favComms,
         user: currentUser,
-        posts: favPosts
+        posts: favPosts, 
+        view: "user-show", 
+        userNav: userID
     })
 }
 

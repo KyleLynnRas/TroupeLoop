@@ -2,34 +2,41 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
+    <%- include("../partials/nav") %>
     <header class="post-idx-header">
-        <div class="header-txt">
-            <h1 class="title"><%= user.username %></h1>
-        </div>
+        <div class="first-box">
+            <div class="header-txt">
+                <h1 class="title"><%= user.username %></h1>
+            </div>
+        </div>        
     </header>
     <main class="user-show-main">
-        <a href="/posts">Back</a>
-        <h1 class="user-show-title">Your posts:</h1>
+        <h1 class="user-show-title">Favorites:</h1>
         <section class="user-container">
-            <% for (post of posts) { %>   
-            <div class="card w-50">
-                <div class="card-body user-card-body">
-                    <a href="/posts/<%=post.id%>"><h5 class="card-title"><%= post.title %></h5></a>
-                    <p class="card-text"><%= post.text %></p>
+            <% for (post of posts) { %>
+               <div class="card user-show-card">
+                   <div class="card-header">
+                       <h5 class="card-title"><%= post.title %></h5>
+                   </div>
+                   <div class="card-body user-card-body">
+                       <p class="card-text user-ctext"><%= post.text %></p>
+                       <p class="card-text auth-text user-ctext"><i class="fas fa-user-circle"></i><%= post.author %> on <%= post.date %></p>
+                       <a href="/posts/<%= post.id %>" class="card-link user-ctext"><i class="fas fa-comments comm-icon"></i></a>
+                   </div>
+               </div>
+           <% } %>
+           <% for (comment of comments) { %>   
+            <div class="card user-show-card">
+                <div class="card-header">
+                    <h5 class="card-title">Post: <%= comment.postTitle %></h5>
                 </div>
-            </div>
-            <% } %>
-        </section>
-        <h1 class="user-show-title">Your comments:</h1>
-        <section class="user-container">
-            <% for (comment of comments) { %>   
-            <div class="card w-50">
                 <div class="card-body user-card-body">
-                    <a href="/posts/<%=comment.postId %>"><h5 class="card-title">Post: <%= comment.postTitle %></h5></a>
                     <p class="card-text"><%= comment.text %></p>
+                    <p class="card-text auth-text"><i class="fas fa-user-circle"></i><%= comment.author %> on <%= comment.date %></p>
+                    <a href="/posts/<%= comment.postId %>" class="card-link"><i class="fas fa-comments comm-icon"></i></a>
                 </div>
             </div>
-            <% } %>
+        <% } %>
         </section>
     </main>
     <footer></footer>

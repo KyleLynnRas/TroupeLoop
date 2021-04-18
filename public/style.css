@@ -410,6 +410,21 @@ footer {
 }
 
 /*-------USER SHOW---------*/
+.user-show-main {
+    background: url("https://i.imgur.com/QLr4e5Y.jpg");
+    /* safari, chrome, opera */
+    background-image: -webkit-linear-gradient(bottom, rgba(238, 238, 238, 0.699), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
+    /* Ffx */
+    background-image: -moz-linear-gradient(bottom, rgba(238, 238, 238, 0.699), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 400px;
+}
+
 .user-container {
     display: flex;
     flex-direction: column;
@@ -417,12 +432,23 @@ footer {
     align-items: center;
 }
 
-.user-show-main {
-    text-align: center;
+.user-show-title {
+    margin-top: 30px;;
+    font-size: 35px;
+    color: #fff;
+    font-weight: 600;
 }
 
-.user-show-title {
-    font-size: 35px;
+.user-show-card {
+    margin: 8px;
+    opacity: 0.9;
+    width: 75%;
+}
+
+.user-comm-card {
+    margin: 8px;
+    opacity: 0.9;
+    width: 75%;
 }
 
 /*-------NAV---------*/
@@ -548,15 +574,28 @@ footer {
     }
 
     /*--USER SHOW-- */
+    .user-show-main  {
+        padding-bottom: 800px;
+    }
+
     .user-container {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        margin: 10px 30px 10px 30px;
     }
     
+    .user-show-title {
+        font-size: 35px;
+        color: #fff;
+    }
+    
+    .user-show-card {
+        opacity: 0.9;
+        width: 40%;
+        height: 350px;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -650,6 +689,19 @@ footer {
         color: #fff;
     }
 
+    /*--USER SHOW--*/
+    .user-show-title {
+        font-size: 35px;
+        color: #fff;
+    }
+    
+    .user-show-card {
+        opacity: 0.9;
+        width: 40%;
+        height: 320px;
+    }
+
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -682,5 +734,21 @@ footer {
     /*--POST SHOW--*/
     .comment-time, .post-author {
         font-size: 20px;
+    }
+
+    /*--USER SHOW--*/
+    .user-show-main  {
+        padding-bottom: 900px;
+    }
+
+    .user-show-title {
+        font-size: 35px;
+        color: #fff;
+    }
+    
+    .user-show-card {
+        opacity: 0.9;
+        width: 30%;
+        height: 350px;
     }
 }

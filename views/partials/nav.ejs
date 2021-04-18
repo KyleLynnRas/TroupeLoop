@@ -17,17 +17,18 @@
                 <li class="nav-item">
                     <a href="/" class="nav-link active">Back</a>
                 </li>
-            <% } else { %> 
+            <% } else if (view === "user-show") { %> 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/user/logout">Log out</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/user/<%= userNav %>">My info</a>
+                    <a class="nav-link active" href="/posts">Back</a>
                 </li>
+            <% } else { %>
                 <li class="nav-item">
                     <% if (view === "post-index") { %>
                         <a class="nav-link active" href="/">Back</a>
-                    <% } else if (view === "post-other") { %>
+                    <% } else if (view === "post-other" || view === "user-show") { %>
                         <a class="nav-link active" href="/posts">Back</a>
                     <% } %>
                 </li>
