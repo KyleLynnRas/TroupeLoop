@@ -51,7 +51,7 @@ const destroy = async (req, res) => {
             //delete comment from db
             await Comment.findByIdAndRemove(commentId)
         }
-        //Delete from all user's fav list in db
+        //Delete from all user's favPosts list in db
         const allUsers = await User.find({})
         // console.log(allUsers)
         for (user of allUsers) {
@@ -67,7 +67,7 @@ const destroy = async (req, res) => {
                 }
             }
         }
-        //remove currentpost from user 
+        //remove currentpost from user posts 
         const userID = currentPost.author.id
         const currentUser = await User.findById(userID)
         currentUser.posts.pull(currentPost.id)
@@ -143,7 +143,7 @@ const show = async (req, res) => {
     postedAt = dayjs(postedAt).format("MM-DD-YY")
     //current user for auth to edit/delete
     const currentUser = req.session.userId
-    //for fav posts - find current user fav posts
+    //for fav posts - find current user fav posts/comments
     const currUser = await User.findById(currentUser).populate("favPosts").populate("favComments")
     const currFavPosts = currUser.favPosts
     //for fav comments
@@ -157,7 +157,8 @@ const show = async (req, res) => {
         currentUser, 
         //nav bar 
         view: "post-other", 
-        userNav: currentUser, 
+        userNav: currentUser,
+        //fav section 
         favPosts: currFavPosts,
         favComms
     })
