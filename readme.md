@@ -50,7 +50,7 @@ Favorites:
 
 ### Getting started:
 
-* Link: https://dashboard.heroku.com/apps/unit2projectkr
+* Link: https://unit2projectkr.herokuapp.com/
 
 
 ### Next Steps: 
