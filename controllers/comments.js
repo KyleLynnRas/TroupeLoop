@@ -87,18 +87,6 @@ const edit = async (req, res) => {
     })
 }
 
-//Show: 
-const show = async (req, res) => { 
-    // console.log(req.params)
-    commentId = req.params.id
-    const currentComment = await Comment.findById(commentId).populate("post").populate("author")
-    //get currentPost id for url
-    const postId = currentComment.post.id
-    res.render("comments/show", {
-        comment: currentComment, 
-        postId
-    })
-}
 
 //Favorite: 
 const favorite = async (req, res) => {
@@ -121,7 +109,6 @@ const favorite = async (req, res) => {
 ////////////////////////////////
 module.exports = {
     create, 
-    show, 
     edit, 
     update,
     destroy, 

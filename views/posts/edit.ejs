@@ -6,7 +6,7 @@
     <header class="post-idx-header">
         <div class="first-box">
             <div class="header-txt">
-                <h1 class="title">Edit post</h1>
+                <h1 class="title"><%= post.title %></h1>
             </div>
         </div>        
     </header>
@@ -21,10 +21,10 @@
             </div>
         </div>
         <form class="post-edit-form" action="/posts/<%= post.id %>?_method=PUT" method="post">
-            <input class="post-edit-input" type="text" name="title" value="<%= post.title %>"><br />
-            <input class="post-edit-input" type="text-area" name="text" value="<%= post.text %>"><br />
+            <input class="post-edit-input" type="text" name="title" value="<%= post.title %>" /><br />
+            <textarea class="add-input post-edit-input" name="text" placeholder="<%= post.text%>"></textarea>
             <div class="post-submit-container">
-                <input class="post-submit" type="submit" value="Submit"><br />
+                <input class="post-submit" type="submit" value="Submit" /><br />
             </div>
         </form>
     </main>

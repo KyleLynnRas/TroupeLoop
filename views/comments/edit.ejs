@@ -6,7 +6,7 @@
     <header class="comment-idx-header">
             <div class="first-box">
                 <div class="header-txt">
-                    <h1 class="title">Post show</h1>
+                    <h1 class="title"><%= comment.post.title %></h1>
                 </div>
             </div>        
         </header>
@@ -21,9 +21,9 @@
             </div>
         </div>
         <form class="comment-edit-form" action="/comments/<%= comment.id %>?_method=PUT" method="post">
-            <input class="comment-edit-input" type="text" name="text" value="<%= comment.text %>"><br />
+            <textarea class="comment-edit-input" name="text" placeholder="<%= comment.text %>"></textarea><br />
             <div class="comment-submit-container">
-                <input class="comment-submit" type="submit" value="Submit"><br />
+                <input class="comment-submit" type="submit" value="Submit" /><br />
             </div>
         </form>
     </main>

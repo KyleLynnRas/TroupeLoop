@@ -31,10 +31,12 @@
     color: #fff;
     opacity: 0.8;
     font-weight: 400;
+    font-family: "Lobster", "Poppins", sans-serif;
 }
 
 .card-text {
     font-size: 15px;
+    white-space: pre-wrap;
 }
 
 .car-img {
@@ -208,19 +210,23 @@ footer {
 
 .post-index-main {
     text-align: center;
-    background: url("https://i.imgur.com/dqf6oWz.jpg");
+    background: url("https://i.imgur.com/QLr4e5Y.jpg");
     /* safari, chrome, opera */
-    background-image: -webkit-linear-gradient(top, rgba(238, 238, 238, 0.39), #00000062), url("https://i.imgur.com/dqf6oWz.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(238, 238, 238, 0.39), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
     /* Ffx */
-    background-image: -moz-linear-gradient(top, rgba(238, 238, 238, 0.39), #00000062), url("https://i.imgur.com/dqf6oWz.jpg");
+    background-image: -moz-linear-gradient(top, rgba(238, 238, 238, 0.39), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
     background-position: center;
     background-size: cover;
+    padding-bottom: 600px;
+}
+
+.title {
+    font-family: "Lobster", "Poppins", sans-serif;
 }
 
 /*--add post--*/
 .add-header {
-   font-weight: 400;
-   color: #fff;
+   font-weight: 600;
 }
 
 .add-post-section {
@@ -231,6 +237,11 @@ footer {
     align-items: center;
     text-align: center;
 }
+
+.add-input {
+    width: 90%;
+}
+
 /*--end add post--*/
 
 .post-container {
@@ -326,6 +337,7 @@ footer {
     margin: 10px;
 }
 
+/*--fav icon settings -active --*/
 .fav-on {
     color: rgba(224, 26, 125, 0.781);
 }
@@ -344,7 +356,7 @@ footer {
     font-size: 10px;
 }
 
-.add, .delete-btn, .edit-btn {
+.delete-btn, .edit-btn {
     border: none;
     background-color: #fff;
     padding: 0;
@@ -355,6 +367,15 @@ footer {
     display: flex;
     justify-content: center;
     margin: 40px;
+}
+
+.add-comm-submit {
+    background-color:rgba(224, 26, 125, 0.836);
+    color: #fff;
+    opacity: 1;
+    transition: 0.3s;
+    padding: 10px 13px 10px 13px;
+    border-radius: 50%;
 }
 
 /*-------COMMENT, POST EDIT---------*/
@@ -385,7 +406,11 @@ footer {
 }
 
 .post-edit-form, .comment-edit-form {
-    margin-top: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .comment-edit-input, .post-edit-input {
@@ -393,12 +418,13 @@ footer {
     padding: 5px;
     margin: 5px;
     border: 1px solid #000;
+    width: 90%;
 }
 
 .comment-submit, .post-submit {
     border-radius: 8px;
     padding: 5px;
-    margin: 3px;
+    margin: 8px;
     background-color: rgba(224, 26, 125, 0.781);
     color: #fff;
 }
@@ -413,9 +439,9 @@ footer {
 .user-show-main {
     background: url("https://i.imgur.com/QLr4e5Y.jpg");
     /* safari, chrome, opera */
-    background-image: -webkit-linear-gradient(bottom, rgba(238, 238, 238, 0.699), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(238, 238, 238, 0.39), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
     /* Ffx */
-    background-image: -moz-linear-gradient(bottom, rgba(238, 238, 238, 0.699), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
+    background-image: -moz-linear-gradient(top, rgba(238, 238, 238, 0.39), #00000062), url("https://i.imgur.com/QLr4e5Y.jpg");
     background-position: center;
     background-size: cover;
     display: flex;
@@ -433,9 +459,8 @@ footer {
 }
 
 .user-show-title {
-    margin-top: 30px;;
+    margin-top: 30px;
     font-size: 35px;
-    color: #fff;
     font-weight: 600;
 }
 
@@ -517,14 +542,17 @@ footer {
     }
 
     .first-box {
-        padding: 30px;
+        padding: 30px 50px 30px 50px;
         border: 2px solid #fff;
     }
 
-    .add-form {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .header-txt {
+        padding: 20px 100px 20px 100px;
+        border: 5px solid #fff;
+    }
+
+    .title {
+        font-size: 40px;
     }
 
     .add-input {
@@ -543,6 +571,10 @@ footer {
         justify-content: center;
         align-items: flex-end;
         margin: 0;
+    }
+
+    .add-comm-submit {
+        padding: 10px 20px 10px 20px;
     }
 
     .index-sub-title {
@@ -573,6 +605,16 @@ footer {
         border: 1px solid #000;
     }
 
+    /*--POST/COMMENT EDIT --*/
+    .comment-edit-input, .post-edit-input {
+        padding: 8px;
+        width: 100%;
+    }
+    
+    .comment-submit, .post-submit {
+        padding: 8px;
+    }
+
     /*--USER SHOW-- */
     .user-show-main  {
         padding-bottom: 800px;
@@ -588,7 +630,6 @@ footer {
     
     .user-show-title {
         font-size: 35px;
-        color: #fff;
     }
     
     .user-show-card {
@@ -636,18 +677,31 @@ footer {
     }
 
     /*--POST INDEX--*/
-    .add-input {
-        border-radius: 8px;
-        padding: 10px 45px;
-        margin: 10px;
+    .add-title {
+        padding: 22px;
     }
 
-    .index-sub-title {
-        font-size: 30px;
+    .title {
+        font-size: 46px;
     }
 
     .add-header {
-        font-size: 45px;
+        font-size: 30px;
+    }
+
+    .add-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .add-submit {
+        background-color:rgba(224, 26, 125, 0.836);
+        color: #fff;
+        opacity: 1;
+        transition: 0.3s;
+        padding:20px;
+        border-radius: 50%;
     }
 
     /*--POST SHOW--*/
@@ -675,24 +729,17 @@ footer {
     }
     
     .comment-edit-input, .post-edit-input {
-        border-radius: 8px;
         padding: 10px 25px 10px 25px;
-        margin: 5px;
-        border: 1px solid #000;
+        width: 100%;
     }
 
     .comment-submit, .post-submit {
-        border-radius: 8px;
-        padding: 10px;
-        margin: 3px;
-        background-color: rgba(224, 26, 125, 0.781);
-        color: #fff;
+        padding: 12px;
     }
 
     /*--USER SHOW--*/
     .user-show-title {
         font-size: 35px;
-        color: #fff;
     }
     
     .user-show-card {
@@ -726,9 +773,24 @@ footer {
         padding: 20px;
     }
 
+    /*--POST INDEX--*/
+    .title {
+        font-size: 50px;
+    }
+
     /*--POST EDIT--*/
     .post-edit-main, .comment-edit-main {
         padding-bottom: 700px;
+    }
+
+    .comment-edit-input, .post-edit-input {
+        padding: 15px 35px 15px 35px;
+        width: 100%;
+    }
+
+    .comment-submit, .post-submit {
+        margin-top: 16px;
+        padding: 15px;
     }
 
     /*--POST SHOW--*/
@@ -743,7 +805,6 @@ footer {
 
     .user-show-title {
         font-size: 35px;
-        color: #fff;
     }
     
     .user-show-card {
