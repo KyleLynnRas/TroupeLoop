@@ -23,10 +23,27 @@ const destroy = async (req, res) => {
         const postId = currentComment.post.id
         //delete currentcomment from relPost in db
         const relPost = await Post.findById(postId)
-        console.log(postId)
+        // console.log(postId)
         relPost.comments.pull(currentComment.id)
         relPost.save()
-        //remove comment
+
+        //Delete from all user's fav list in db
+        const allUsers = await User.find({})
+        // console.log(allUsers)
+        for (user of allUsers) {
+            //find user in db
+            user1 = await User.findById(user.id)
+            //user's fav post arr
+            const favArr = user1.favComments
+            for (fav of favArr) {
+                // if favPost id matches currPost delete
+                if (fav == currentComment.id) {
+                    user1.favComments.pull(fav)
+                    user1.save()
+                }
+            }
+        }
+        //remove comment from db
         await Comment.findByIdAndRemove(req.params.id)
         res.redirect(`/posts/${postId}`)
     } catch (error) {
@@ -74,6 +91,7 @@ const create = async (req, res) => {
 const edit = async (req, res) => {
     const currentComment = await Comment.findById(req.params.id).populate("post").populate("author")
     //format date
+    console.log(currentComment)
     let postedAt = currentComment.createdAt
     postedAt = dayjs(postedAt).format("MM-DD-YY")
     //nav

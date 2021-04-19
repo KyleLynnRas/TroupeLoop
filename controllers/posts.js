@@ -51,7 +51,23 @@ const destroy = async (req, res) => {
             //delete comment from db
             await Comment.findByIdAndRemove(commentId)
         }
-        //remove currentpost from user
+        //Delete from all user's fav list in db
+        const allUsers = await User.find({})
+        // console.log(allUsers)
+        for (user of allUsers) {
+            //find user in db
+            user1 = await User.findById(user.id)
+            //user's fav post arr
+            const favArr = user1.favPosts
+            for (fav of favArr) {
+                // if favPost id matches currPost delete
+                if (fav == currentPost.id) {
+                    user1.favPosts.pull(fav)
+                    user1.save()
+                }
+            }
+        }
+        //remove currentpost from user 
         const userID = currentPost.author.id
         const currentUser = await User.findById(userID)
         currentUser.posts.pull(currentPost.id)

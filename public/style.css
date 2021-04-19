@@ -467,7 +467,7 @@ footer {
 .user-show-card {
     margin: 8px;
     opacity: 0.9;
-    width: 75%;
+    width: 250px;
 }
 
 .user-comm-card {
@@ -633,9 +633,8 @@ footer {
     }
     
     .user-show-card {
-        opacity: 0.9;
-        width: 40%;
-        height: 350px;
+        width: 350px;
+        height: 370px;
     }
 }
 
@@ -743,9 +742,8 @@ footer {
     }
     
     .user-show-card {
-        opacity: 0.9;
-        width: 40%;
-        height: 320px;
+        width: 400px;
+        height: 370px;
     }
 
 
@@ -808,8 +806,7 @@ footer {
     }
     
     .user-show-card {
-        opacity: 0.9;
-        width: 30%;
-        height: 350px;
+        width: 500px;
+        height: 370px;
     }
 }
