@@ -40,12 +40,16 @@ Favorites:
 * JavaScript
 * jQuery
 * Express
-* MongoDb
+* EJS
+* MongoDB
 * Mongoose
-* Bcrypt & Sessions
+* Bcryptjs
+* Session
 * Bootstrap
+* Font awesome
 * Day.js
 * Google Fonts
+* Merced Logger 
 
 
 ### Getting started:

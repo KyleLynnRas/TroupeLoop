@@ -1,7 +1,6 @@
 ///////////////////////////////
 // Imports
 ////////////////////////////////
-const router = require("express").Router()
 const Post = require("../models/Post")
 const User = require("../models/User")
 const Comment = require("../models/Comment")
@@ -81,7 +80,7 @@ const destroy = async (req, res) => {
                 }
             }
         }
-        // remove currentpost from user posts 
+        // remove currentpost from auth/user posts 
         const userID = currentPost.author.id
         const currentUser = await User.findById(userID)
         currentUser.posts.pull(currentPost.id)
